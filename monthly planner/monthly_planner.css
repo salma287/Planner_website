@@ -1,0 +1,412 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  height: 100vh;
+  display: flex;
+  flex-direction: row; /* pour aligner sidebar + main horizontalement */
+  background-color: #f4f4f4;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  padding: 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.main-content {
+  margin-left: 250px;
+  padding: 30px;
+  min-height: 100vh;
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  box-sizing: border-box;
+  width: calc(100% - 250px); /* Important */
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  background-color: rgb(255, 255, 255);
+  color: rgb(59, 54, 54);
+  padding: 20px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.account-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #b4b4b4; /* Small line separating user info from the rest of the sidebar */
+  padding-bottom: 15px;
+}
+.account-btn {
+  width: 50px;
+  height: 50px;
+  background-color: #fff;
+  border-radius: 50%; /* Make the button round */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px; /* Space between button and sidebar content */
+  cursor: pointer; /* Make it look clickable */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Optional: Add a shadow for effect */
+}
+
+.account-btn img {
+  width: 30px; /* Adjust icon size */
+  height: 30px;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  color: #0f0f0f; /* Assurer que le texte est blanc */
+  margin-left: 10px;
+  justify-content: center;
+}
+
+.username {
+  font-weight: bold;
+  font-size: 16px;
+  color: #0a0a0a;
+}
+
+.email {
+  font-size: 14px;
+  color: #77797e;
+}
+
+.nav-top {
+  flex: 1;
+}
+
+.nav-bottom {
+  margin-top: auto;
+}
+
+.nav-top ul,
+.nav-bottom ul {
+  list-style: none;
+}
+
+.nav-top ul li,
+.nav-bottom ul li {
+  margin: 20px 0;
+}
+
+.nav-top ul li a,
+.nav-bottom ul li a {
+  color: #000000;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.nav-top ul li a .icon,
+.nav-bottom ul li a .icon {
+  width: 20px; /* Adjust icon size */
+  height: 20px;
+  margin-right: 10px;
+  color: #77797e;
+}
+
+.nav-top ul li a:hover,
+.nav-bottom ul li a:hover {
+  color: #2500f5; /* Change color on hover */
+}
+
+.main-content {
+  margin-left: 250px; /* same as sidebar width */
+  padding: 30px;
+  min-height: 100vh;
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+
+.box {
+  position: relative;
+  width: 270px;
+  height: 240px;
+  background-color: #c4abc3;
+  color: white;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 8px;
+  box-sizing: border-box;
+  padding: 0 10px;
+  z-index: 1;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.box:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.goal-title,
+.academic-title,
+.relation-title,
+.fitness-title,
+.nutrition-title,
+.finance-title {
+  font-size: 50px;
+  font-weight: bold;
+  color: #ffffff;
+  margin-top: 20px;
+  margin-bottom: 0px;
+}
+
+.icon-container {
+  background-color: #ffffff4f;
+  padding: 0px;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+  margin-bottom: 2px;
+}
+
+.icon {
+  width: 60px;
+  height: 60px;
+}
+
+#personalBox {
+  background-color: #cfb0d5ab;
+}
+
+#academicBox {
+  background-color: #6a79b7d4;
+}
+
+#relationshipBox {
+  background-color: #f39366ab;
+}
+
+#fitnessBox {
+  background-color: #b2ca84ab;
+}
+
+#nutritionBox {
+  background-color: #eb7b7bab;
+}
+
+.box span {
+  font-size: 30px;
+}
+
+#personalcontainer {
+  background-color: #cfb0d5e8;
+}
+
+#academiccontainer {
+  background-color: #6a79b7e1;
+}
+
+#relationcontainer {
+  background-color: #f39366e0;
+}
+
+#fitnesscontainer {
+  background-color: #b1ca84e9;
+}
+
+#nutritioncontainer {
+  background-color: #eb7b7bea;
+}
+
+.btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #fff;
+  border: none;
+  color: #a3b1cf;
+  font-size: 18px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover {
+  background-color: #e8e8e8;
+}
+
+/* Popup Overlay */
+.popup-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 10001;
+}
+
+/* Popup Box */
+.popup-box {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 8px;
+  width: 400px;
+  max-width: 90%;
+  position: relative;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.popup-box h3 {
+  color: #360417;
+}
+#goalslist {
+  width: 500px;
+  max-width: 100%;
+}
+/* Close Button */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 22px;
+  cursor: pointer;
+  color: #999;
+}
+
+.close-btn:hover {
+  color: black;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+form label {
+  font-size: 14px;
+  color: #000000;
+  font-weight: bold;
+}
+
+form input,
+form select,
+form textarea {
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.submit-btn {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #5c4ec3;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #2107e649;
+}
+/* Liste des objectifs */
+#goalsList {
+  padding-left: 20px; /* Indentation pour les puces */
+  list-style-type: disc; /* Affiche le point de liste (•) */
+  margin: 0;
+}
+
+/* Style des éléments de la liste (chaque objectif) */
+#goalsList li {
+  display: flex;
+  justify-content: flex-start; /* Aligner à gauche */
+  align-items: center; /* Centrer verticalement */
+  margin: 10px 0;
+  padding: 12px 16px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  gap: 15px; /* Espace entre les éléments */
+  list-style-position: outside; /* S'assurer que la puce est à l'extérieur */
+}
+
+/* Conteneur des données du goal (pour les afficher en ligne) */
+.goal-content {
+  display: flex;
+  gap: 15px; /* Espace entre les informations du goal */
+  flex-wrap: wrap; /* Pour gérer les débordements sur petites résolutions */
+  margin-bottom: 5px;
+}
+
+.goal-content span {
+  white-space: nowrap;
+}
+
+.goal-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.modify-btn,
+.delete-btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  color: white;
+}
+
+.modify-btn {
+  background-color: #5c4ec3;
+}
+
+.modify-btn:hover {
+  background-color: #4335a3;
+}
+
+.delete-btn {
+  background-color: #e74c3c;
+}
+
+.delete-btn:hover {
+  background-color: #c0392b;
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Account Settings</title>
+    <link rel="stylesheet" href="monthly_planner.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="sidebar">
+        <h2>Settings</h2>
+        <ul>
+          <li class="active"><a href="#">Account</a></li>
+          <li><a href="#">Notifications</a></li>
+          <li><a href="#">Privacy</a></li>
+          <li><a href="#">Languages</a></li>
+          <li><a href="#">Help</a></li>
+        </ul>
+      </div>
+
+      <div class="content">
+        <h1>Account Settings</h1>
+
+        <div class="section-wrapper">
+          <section class="section">
+            <h2>Basic Info</h2>
+            <form class="form-grid">
+              <div class="profile-pic-container">
+                <img
+                  src="https://via.placeholder.com/100"
+                  alt="Profile"
+                  class="profile-pic"
+                />
+                <input type="file" id="profilePic" />
+              </div>
+
+              <div>
+                <label for="fullName">Name</label>
+                <input type="text" id="fullName" value="John Doe" />
+              </div>
+
+              <div>
+                <label for="dob">Birth Date</label>
+                <input type="date" id="dob" value="1995-01-01" />
+              </div>
+
+              <div>
+                <label for="gender">Gender</label>
+                <select id="gender">
+                  <option>Male</option>
+                  <option>Female</option>
+                  <option>Other</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="email">Email</label>
+                <input type="email" id="email" value="john@example.com" />
+              </div>
+            </form>
+          </section>
+
+          <section class="section">
+            <h2>Account Info</h2>
+            <form class="form-grid short">
+              <div>
+                <label for="username">Username</label>
+                <input type="text" id="username" value="john_doe_95" />
+              </div>
+              <div>
+                <label for="password">Password</label>
+                <input type="password" id="password" value="********" />
+              </div>
+            </form>
+          </section>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
