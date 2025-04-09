@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JoyPlanner</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main-content">
+        <header>
+            <h1>JoyPlanner</h1>
+            <nav>
+                <ul>
+                    <li class="active"><a href="#"><i class="fas fa-calendar-day"></i> Daily</a></li>
+                    <li><a href="#"><i class="fas fa-calendar-week"></i> Weekly</a></li>
+                    <li><a href="#"><i class="fas fa-calendar-alt"></i> Monthly</a></li>
+                    <li><a href="#"><i class="fas fa-chart-bar"></i> Stats</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div class="quote">
+            <p>"Every small step counts towards big achievements!"</p>
+        </div>
+
+        <section class="mood-section">
+            <h2>How are you feeling today?</h2>
+            <div class="mood-selector">
+                <div class="mood-option" data-mood="happy">
+                    <i class="far fa-smile"></i>
+                    <span>Happy</span>
+                </div>
+                <div class="mood-option" data-mood="neutral">
+                    <i class="far fa-meh"></i>
+                    <span>Neutral</span>
+                </div>
+                <div class="mood-option" data-mood="sad">
+                    <i class="far fa-frown"></i>
+                    <span>Sad</span>
+                </div>
+                <div class="mood-option" data-mood="excited">
+                    <i class="far fa-grin-stars"></i>
+                    <span>Excited</span>
+                </div>
+                <div class="mood-option" data-mood="tired">
+                    <i class="far fa-tired"></i>
+                    <span>Tired</span>
+                </div>
+            </div>
+            <p class="selected-mood">Selected: <span id="current-mood">None yet</span></p>
+        </section>
+
+        <section class="tasks-section">
+            <div class="section-header">
+                <h2>Today's Tasks</h2>
+                <button id="add-task-btn" class="btn-primary"><i class="fas fa-plus"></i> Add Task</button>
+            </div>
+            <ul class="task-list">
+                <li class="task-item">
+                    <div class="task-info">
+                        <i class="fas fa-dumbbell task-icon"></i>
+                        <div>
+                            <h3>Morning workout</h3>
+                            <p>08:30</p>
+                        </div>
+                    </div>
+                    <div class="task-actions">
+                        <button class="btn-complete"><i class="far fa-check-circle"></i></button>
+                        <button class="btn-edit"><i class="far fa-edit"></i></button>
+                        <button class="btn-delete"><i class="far fa-trash-alt"></i></button>
+                    </div>
+                </li>
+                <li class="task-item">
+                    <div class="task-info">
+                        <i class="fas fa-users task-icon"></i>
+                        <div>
+                            <h3>Team meeting</h3>
+                            <p>10:00</p>
+                        </div>
+                    </div>
+                    <div class="task-actions">
+                        <button class="btn-complete"><i class="far fa-check-circle"></i></button>
+                        <button class="btn-edit"><i class="far fa-edit"></i></button>
+                        <button class="btn-delete"><i class="far fa-trash-achlt"></i></button>
+                    </div>
+                </li>
+                <li class="task-item">
+                    <div class="task-info">
+                        <i class="fas fa-utensils task-icon"></i>
+                        <div>
+                            <h3>Lunch break</h3>
+                            <p>12:30</p>
+                        </div>
+                    </div>
+                    <div class="task-actions">
+                        <button class="btn-complete"><i class="far fa-check-circle"></i></button>
+                        <button class="btn-edit"><i class="far fa-edit"></i></button>
+                        <button class="btn-delete"><i class="far fa-trash-alt"></i></button>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <section class="people-section">
+            <h2>People to Connect With</h2>
+            <div class="people-list">
+                <div class="person-card">
+                    <div class="person-avatar">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="person-info">
+                        <h3>John Doe</h3>
+                        <p>Project Manager</p>
+                    </div>
+                    <div class="person-actions">
+                        <button class="btn-connect"><i class="fas fa-comment-dots"></i></button>
+                    </div>
+                </div>
+                <div class="person-card">
+                    <div class="person-avatar">
+                        <i class="fas fa-user-edit"></i>
+                    </div>
+                    <div class="person-info">
+                        <h3>Alice Smith</h3>
+                        <p>Design Team</p>
+                    </div>
+                    <div class="person-actions">
+                        <button class="btn-connect"><i class="fas fa-comment-dots"></i></button>
+                    </div>
+                </div>
+            </div>
+            <button class="btn-add-person"><i class="fas fa-user-plus"></i> Add Contact</button>
+        </section>
+
+        <section class="notes-section">
+            <h2>Quick Notes</h2>
+            <textarea placeholder="Jot down quick notes here..."></textarea>
+            <div class="notes-actions">
+                <button class="btn-save">Save Notes</button>
+                <button class="btn-search">Search Notes <i class="fas fa-search"></i></button>
+            </div>
+        </section>
+    </div>
+
+    <aside class="sidebar">
+        <div class="calendar-container">
+            <div class="calendar-header">
+                <button id="prev-month"><i class="fas fa-chevron-left"></i></button>
+                <h2 id="current-month">April 2025</h2>
+                <button id="next-month"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            <div class="calendar-weekdays">
+                <div>Sun</div>
+                <div>Mon</div>
+                <div>Tue</div>
+                <div>Wed</div>
+                <div>Thu</div>
+                <div>Fri</div>
+                <div>Sat</div>
+            </div>
+            <div class="calendar-days" id="calendar-days">
+                <!-- Calendar days will be generated by JavaScript -->
+            </div>
+        </div>
+
+        <div class="upcoming-events">
+            <h3>Upcoming Events</h3>
+            <ul>
+                <li>
+                    <span class="event-date">Apr 10</span>
+                    <span class="event-title">Project Deadline</span>
+                </li>
+                <li>
+                    <span class="event-date">Apr 15</span>
+                    <span class="event-title">Team Lunch</span>
+                </li>
+                <li>
+                    <span class="event-date">Apr 20</span>
+                    <span class="event-title">Client Meeting</span>
+                </li>
+            </ul>
+        </div>
+    </aside>
+
+    <!-- Task Modal -->
+    <div class="modal" id="task-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Add New Task</h2>
+            <form id="task-form">
+                <div class="form-group">
+                    <label for="task-name">Task Name</label>
+                    <input type="text" id="task-name" placeholder="What needs to be done?">
+                </div>
+                <div class="form-group">
+                    <label for="task-time">Time</label>
+                    <input type="time" id="task-time">
+                </div>
+                <div class="form-group">
+                    <label>Category</label>
+                    <div class="category-options">
+                        <label class="category-option">
+                            <input type="radio" name="category" value="work" checked>
+                            <span><i class="fas fa-briefcase"></i> Work</span>
+                        </label>
+                        <label class="category-option">
+                            <input type="radio" name="category" value="personal">
+                            <span><i class="fas fa-home"></i> Personal</span>
+                        </label>
+                        <label class="category-option">
+                            <input type="radio" name="category" value="health">
+                            <span><i class="fas fa-heartbeat"></i> Health</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-cancel">Cancel</button>
+                    <button type="submit" class="btn-add-task">Add Task</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
