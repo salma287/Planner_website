@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        font-family: "Arial", sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background-color: #f8f9fa;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+
+      .container {
+        display: flex;
+        width: 900px;
+        max-width: 95%;
+        height: 550px;
+        background-color: white;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        position: relative;
+      }
+
+      .image-container {
+        width: 45%;
+        background-color: #e9ecef;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .image-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .login-container {
+        width: 55%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0 60px;
+      }
+
+      h1 {
+        color: #d291bc;
+        margin-bottom: 30px;
+        font-size: 28px;
+        text-align: center;
+        font-weight: 600;
+      }
+
+      .form-group {
+        margin-bottom: 25px;
+        position: relative;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+        color: #4e4c97; /* Purple Navy */
+        font-size: 14px;
+        font-weight: bold;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      input[type="password"] {
+        width: 100%;
+        padding: 14px 15px;
+        border: 1px solid #ced4da;
+        border-radius: 6px;
+        font-size: 15px;
+        transition: border-color 0.3s;
+      }
+
+      input:focus {
+        border-color: #4e4c97; /* Purple Navy */
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(78, 76, 151, 0.1);
+      }
+
+      .login-btn {
+        width: 100%;
+        padding: 14px;
+        background-color: #d291bc;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        margin-top: 10px;
+        transition: background-color 0.3s;
+      }
+
+      .login-btn:hover {
+        background-color: #d291bc;
+      }
+
+      .forgot-password {
+        text-align: right;
+        margin-top: -15px;
+        margin-bottom: 25px;
+      }
+
+      .forgot-password a {
+        color: #4e4c97; /* Purple Navy */
+        font-size: 13px;
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+
+      .forgot-password a:hover {
+        color: #3a3873; /* Darker Purple Navy */
+        text-decoration: underline;
+      }
+
+      .signup-container {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        color: white;
+        text-align: right;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+      }
+
+      .signup-container a {
+        color: #4e4c97;
+        font-weight: 600;
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+
+      .signup-container a:hover {
+        color: #4e4c97;
+        text-decoration: underline;
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          flex-direction: column;
+          height: auto;
+        }
+
+        .image-container,
+        .login-container {
+          width: 100%;
+        }
+
+        .image-container {
+          height: 200px;
+        }
+
+        .login-container {
+          padding: 40px 30px;
+        }
+
+        .signup-container {
+          color: #333;
+          text-shadow: none;
+          position: static;
+          text-align: center;
+          margin-top: 20px;
+        }
+
+        .signup-container a:hover {
+          color: #3a3873; /* Darker Purple Navy */
+          text-decoration: underline;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="image-container">
+        <img src="loginfond.jpg" alt="Login Visual" />
+      </div>
+
+      <div class="login-container">
+        <h1>Welcome Back!</h1>
+
+        <form id="loginForm">
+          <div class="form-group">
+            <label for="username">Email Address</label>
+            <input
+              type="email"
+              id="username"
+              placeholder="username@example.com"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              placeholder="••••••••"
+              required
+            />
+          </div>
+
+          <div class="forgot-password">
+            <a href="reset-password.html">Forgot password?</a>
+          </div>
+
+          <div class="signup-container">
+            New user? <a href="signup.html">Sign up</a>
+          </div>
+          <button type="submit" class="login-btn">Login</button>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      document
+        .getElementById("loginForm")
+        .addEventListener("submit", async function (e) {
+          e.preventDefault();
+
+          const email = document.getElementById("username").value;
+          const password = document.getElementById("password").value;
+
+          if (!email || !password) {
+            alert("Please fill in all fields");
+            return;
+          }
+
+          try {
+            const response = await fetch("http://localhost:5000/login", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({ email, password }),
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+              alert("Login successful!");
+              localStorage.setItem("token", data.token); // save JWT for later use
+              // Redirect to a protected page (if you have one)
+              // window.location.href = 'dashboard.html';
+            } else {
+              alert(data.message || "Login failed");
+            }
+          } catch (error) {
+            console.error("Login error:", error);
+            alert("Server error. Please try again later.");
+          }
+        });
+    </script>
+  </body>
+</html>
